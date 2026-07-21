@@ -165,7 +165,7 @@ function App() {
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
       <div className="stadium-lights"></div>
       
-      <div className="z-10 w-full max-w-2xl bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
+      <div className="relative z-10 w-full max-w-2xl bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
         <h1 className="text-4xl font-display font-bold text-center mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-500 uppercase">
           Futbol Kesişim
         </h1>
