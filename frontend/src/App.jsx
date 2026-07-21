@@ -9,6 +9,7 @@ function App() {
   const [roomId, setRoomId] = useState(null);
   const [playerIndex, setPlayerIndex] = useState(null);
   const [turn, setTurn] = useState(null);
+  const [isConnected, setIsConnected] = useState(socket.connected);
   const [team1, setTeam1] = useState(null);
   const [team2, setTeam2] = useState(null);
   const [lives, setLives] = useState(2);
@@ -49,6 +50,10 @@ function App() {
     }
 
     // Socket listeners
+    socket.on('connect', () => setIsConnected(true));
+    socket.on('disconnect', () => setIsConnected(false));
+    socket.on('connect_error', () => setIsConnected(false));
+
     socket.on('waiting_for_opponent', () => setGameState('waiting'));
     
     socket.on('match_found', ({ roomId, playerIndex }) => {
@@ -165,6 +170,12 @@ function App() {
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
       <div className="stadium-lights"></div>
       
+      {/* Connection Status Indicator */}
+      <div className="absolute top-4 right-4 z-50 flex items-center gap-2 text-sm bg-black/50 px-3 py-1 rounded-full border border-white/10">
+        <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`}></div>
+        <span className="text-gray-300">{isConnected ? 'Sunucu Bağlı' : 'Bağlantı Bekleniyor...'}</span>
+      </div>
+
       <div className="relative z-10 w-full max-w-2xl bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
         <h1 className="text-4xl font-display font-bold text-center mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-500 uppercase">
           Futbol Kesişim
