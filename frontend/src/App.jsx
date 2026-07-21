@@ -186,7 +186,7 @@ function App() {
             <p className="text-lg text-gray-300 mb-8">Gerçek zamanlı futbolcu tahmin yarışmasına hoş geldin. Rakibini bul ve bilgini sına!</p>
             <button 
               onClick={joinGame}
-              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full transition-all transform md:hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(16,185,129,0.5)] cursor-pointer touch-manipulation"
             >
               Maç Bul
             </button>
@@ -234,7 +234,7 @@ function App() {
                   </button>
                 </div>
                 {errorMessage && <p className="text-red-400 text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4"/>{errorMessage}</p>}
-                <button type="submit" className="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-full font-bold transition-colors">
+                <button type="submit" className="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-full font-bold transition-all transform active:scale-95 cursor-pointer touch-manipulation">
                   Seç
                 </button>
               </form>
@@ -284,7 +284,7 @@ function App() {
                 </button>
               </div>
               {errorMessage && <p className="text-red-400 text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4"/>{errorMessage}</p>}
-              <button type="submit" className="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-full font-bold transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+              <button type="submit" className="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-full font-bold transition-all transform active:scale-95 shadow-[0_0_15px_rgba(16,185,129,0.3)] cursor-pointer touch-manipulation">
                 Tahmin Et
               </button>
             </form>
@@ -313,7 +313,7 @@ function App() {
 
             <button 
               onClick={() => window.location.reload()}
-              className="px-8 py-3 border border-emerald-500 hover:bg-emerald-500/20 text-white rounded-full font-bold transition-colors"
+              className="px-8 py-3 border border-emerald-500 hover:bg-emerald-500/20 text-white rounded-full font-bold transition-all transform active:scale-95 cursor-pointer touch-manipulation"
             >
               Tekrar Oyna
             </button>
